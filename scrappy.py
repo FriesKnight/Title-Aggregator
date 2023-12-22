@@ -1,8 +1,9 @@
+import os
 import requests
 from bs4 import BeautifulSoup
 from flask import Flask, render_template
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder=os.path.abspath(os.path.dirname(__file__)))
 
 @app.route('/')
 def index():
@@ -25,4 +26,5 @@ def scrape_titles():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 
